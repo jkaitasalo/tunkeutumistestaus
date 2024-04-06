@@ -47,7 +47,7 @@
 ![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/7a455614-819f-4a58-be69-0d54d58a0795)
 
 - Alla muokattu pyyntö palauttaa tuotteet joiden kategoria on Gifts tai 1 on yhtäsuurikuin 1. Kun 1=1 on aina tosi, kysely palauttaa kaikki tuotteet
-- 
+
 ![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/af46111c-8033-4ef0-be46-75497975dee0)
 
 
@@ -81,3 +81,8 @@ Apache demoni käynnistettyä on porttiin 80 auennut Linux pohjainen (Debian) pa
 ### j) Kokeile ja esittele jokin avointen lähteiden tiedusteluun sopiva weppisivu tai työkalu.
 
 Käytin [Bazzel: IntelTechniques: Tools](https://inteltechniques.com/tools/index.html) sivustolta löytyvää Documents Search Tool:ia. Hain työkalulla osumia itsestäni ja löysinkin sieltä mm. vanhan yläasteella tehdyn kuvataiteen "kilpailuun" lähettämäni työn, vanhan facebook profiilikuvan ja muutaman eri tapahtuman ilmoituksen, joihin olen osallistunut.
+
+
+### k) Vapaaehtoinen: Tee lisää harjoituksia alustoilta, joihin tässä on tutustuttu
+
+- Tein Over The Wire: Bandit:ia vähän pidemmälle, koska se vaikutti hauskalta!
