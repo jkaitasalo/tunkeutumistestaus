@@ -25,3 +25,17 @@
 
 ### a) Ratkaise Over The Wire: Bandit kolme ensimmäistä tasoa (0-2)
 
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/219eef90-39ea-4f93-abab-a81339008a37)
+
+
+### b) Asenna WebGoat ja kokeile, että pääset kirjautumaan sisään
+
+- Loin käyttäjän ja kirjauduin sisään onnistuneesti
+
+### c) Ratkaise WebGoatista tehtävät "HTTP Basics" ja "Developer tools"
+
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/48fcad18-75c5-4d38-808e-a2cb21d17b6c)
+
+
+### d) Ratkaise ja selitä PortSwigger Labs: Lab: SQL injection vulnerability in WHERE clause allowing retrieval of hidden data. (Edellyttää ilmaista rekisteröitymistä. Tehtävän voi ratkaista pelkästään selaimen osoitekenttää muokkaamalla.) Selitä, mitä tekniikoita kokeilit, ja mitä hyökkäyksesi eri osat tekevät.
+
