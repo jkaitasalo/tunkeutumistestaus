@@ -80,4 +80,4 @@ Apache demoni käynnistettyä on porttiin 80 auennut Linux pohjainen (Debian) pa
 
 ### j) Kokeile ja esittele jokin avointen lähteiden tiedusteluun sopiva weppisivu tai työkalu.
 
-Käytin ![url]Bazzel: IntelTechniques: Tools(https://inteltechniques.com/tools/index.html) sivustoa
+Käytin [Bazzel: IntelTechniques: Tools](https://inteltechniques.com/tools/index.html) sivustoa
