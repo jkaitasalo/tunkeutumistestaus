@@ -80,4 +80,4 @@ Apache demoni käynnistettyä on porttiin 80 auennut Linux pohjainen (Debian) pa
 
 ### j) Kokeile ja esittele jokin avointen lähteiden tiedusteluun sopiva weppisivu tai työkalu.
 
-Käytin [Bazzel: IntelTechniques: Tools](https://inteltechniques.com/tools/index.html) sivustoa
+Käytin [Bazzel: IntelTechniques: Tools](https://inteltechniques.com/tools/index.html) sivustolta löytyvää Documents Search Tool:ia. Hain työkalulla osumia itsestäni ja löysinkin sieltä mm. vanhan yläasteella tehdyn kuvataiteen "kilpailuun" lähettämäni työn, vanhan facebook profiilikuvan ja muutaman eri tapahtuman ilmoituksen, joihin olen osallistunut.
