@@ -21,3 +21,7 @@
 - Installation | Takaoven tai etäyhteys troijalaisen asennus, jotta saadaan "jalansija" järjestelmään
 - Command and Control (C2) | C2 kanavan auettua tunkeutujalla on "manuaalinen" yhteys kohteeseen
 - Actions on Objectives | Vasta tässä vaiheessa tunkeutuja voi alkaa toteuttamaan alkuperäisen motiivin ja tavoitteen toimia
+
+
+### a) Ratkaise Over The Wire: Bandit kolme ensimmäistä tasoa (0-2)
+
