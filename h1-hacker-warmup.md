@@ -68,4 +68,16 @@ Portit skannattuani, näyttäisi siltä, että localhostissa olevat 1000 yleisin
 
 ![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/6be45585-b92e-4c18-b4f2-9e94d4ad92e9)
 
-`nmap -A localhost`
+`nmap -A localhost` -komento suoritti porttiskannauksen lisäksi käyttöjärjestelmän ja palvelun(?) tunnistuksen. Komennolla ei onnistuttu tunnistamaan käyttöjärjestelmää. Kalin sisäänrakennettu ominaisuus?
+
+
+### i) Asenna demoni tai pari (esim Apache ja SSH). Vertaile, miten localhost:n laajan porttiskannauksen tulos eroaa.
+
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/1e10d10c-738b-40a8-9ec0-aa96b3432b46)
+
+Apache demoni käynnistettyä on porttiin 80 auennut Linux pohjainen (Debian) palvelu. Palvelu palauttaa viestin "It works". Tällä kertaa OS skannauksen tulos on täyttä hepreaa itselleni.
+
+
+### j) Kokeile ja esittele jokin avointen lähteiden tiedusteluun sopiva weppisivu tai työkalu.
+
+Käytin ![url]Bazzel: IntelTechniques: Tools(https://inteltechniques.com/tools/index.html) sivustoa
