@@ -60,3 +60,12 @@
 
 ![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/0c5a83e3-e424-48c1-bf66-b3a61913b0a0)
 
+Portit skannattuani, näyttäisi siltä, että localhostissa olevat 1000 yleisintä porttia ovat kiinni.
+- Ports: ignored state: closed (1000)
+
+
+### h) Tee laaja porttiskanaus (nmap -A) omalle koneellesi (localhost), kaikki portit. Selitä, mitä -A tekee. Analysoi tulokset.
+
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/6be45585-b92e-4c18-b4f2-9e94d4ad92e9)
+
+`nmap -A localhost`
