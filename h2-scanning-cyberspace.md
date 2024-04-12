@@ -16,6 +16,12 @@
     - nmap ei kykene määrittämään onko portti `closed` vai `filtered`
 
 [Port Scanning Techniques](https://nmap.org/book/man-port-scanning-techniques.html) (opettele, mitä ovat: -sS -sT -sU; muuten vain silmäily)
+- **-sS**
+  - asd
+- **-sT**
+  - asd
+- **-sU**
+  - asd
 
 ***
 ### KKO 2003:36. Alaikäinen tuomittiin Osuuspankkikeskuksen porttiskannaamisesta, korkeimman oikeuden ratkaisu.
