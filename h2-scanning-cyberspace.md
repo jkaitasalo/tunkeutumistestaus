@@ -8,9 +8,9 @@
     - closed
       - Vastaanottaa nmap paketteja ja vastaa niille. Applikaatio ei aktiivisesti kuitenkaan käytä tätä porttia. Hyödyllistä skannata myöhemmin, jos portti olisikin käytössä.
     - filtered
-      - nmap ei onnistu määrittämään onko portti auki, koska paketin filteröinti estää portin saavuttamisen palomuurin tai muun ominaisuuden takia. Hidastaa porttiskannausta huomattavasti.
+      - nmap ei onnistu määrittämään onko portti `open`, koska paketin filteröinti estää portin saavuttamisen palomuurin tai muun ominaisuuden takia. Hidastaa porttiskannausta huomattavasti.
     - unfiltered
-      - Portti on saavutettavissa, mutta nmap ei onnistu määrittämään onko portti auki vai kiinni.
+      - Portti on saavutettavissa, mutta nmap ei onnistu määrittämään onko portti `open` vai `closed`.
     - open|filtered
       - nmap ei kykene määrittämään onko portti `closed` vai `filtered`
 - [Port Scanning Techniques](https://nmap.org/book/man-port-scanning-techniques.html) (opettele, mitä ovat: -sS -sT -sU; muuten vain silmäily)
