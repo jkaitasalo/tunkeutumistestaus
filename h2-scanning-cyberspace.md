@@ -1,7 +1,7 @@
 ## x) Lue/katso ja tiivistä.
 
-### Lyon 2009: Nmap Network Scanning: Chapter 15. Nmap Reference Guide:
-#### [Port Scanning Basics](https://nmap.org/book/man-port-scanning-basics.html) (opettele, mitä tarkoittavat: open, closed, filtered; muuten vain silmäily)
+## Lyon 2009: Nmap Network Scanning: Chapter 15. Nmap Reference Guide:
+### [Port Scanning Basics](https://nmap.org/book/man-port-scanning-basics.html) (opettele, mitä tarkoittavat: open, closed, filtered; muuten vain silmäily)
   - Nämä olomuodot kuvailevat miten nmap näkee skannatut portit
     - open
       - Tätä porttia käyttävä applikaatio aktiivisesti hyväksyy TCP-yhteyksiä, UDP-datagrammeja tai SCTP-yhteyksiä. Porttiskannauksen pääasiallinen tavoite löytää portti tällä olomuodolla.
