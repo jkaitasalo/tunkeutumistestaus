@@ -51,6 +51,7 @@ Testasin molemmissa ping ja curl
 ![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/4dd8e7f8-133d-4ef2-b086-4ed8fc4fc629)
 
 Yhteys Kalista metasploitableen onnistuu:
+
 ![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/199a62b2-ced2-4b74-9cad-a1afe3bb2877)
 
 ***
