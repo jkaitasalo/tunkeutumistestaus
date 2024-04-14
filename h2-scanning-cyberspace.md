@@ -17,14 +17,75 @@
 
 [Port Scanning Techniques](https://nmap.org/book/man-port-scanning-techniques.html) (opettele, mitä ovat: -sS -sT -sU; muuten vain silmäily)
 - **-sS**
-  - asd
+  - TCP SYN scan. Oletus TCP skannaustyyppi kun SYN skanni ei ole vaihtoehto. Ei suorita TCP yhteyksiä, joten vaikeampi havaita.
 - **-sT**
-  - asd
+  - TCP connect scan. Oletus skannaustyyppi, jos SYN ei ole vaihtoehto. Nmap käyttää Berkeley Sockets APIa yhteyden muodostamiseen.
 - **-sU**
-  - asd
+  - UDP scan. Suurin osa palveluista käyttää TCP protokollaa, DNS, SNMP ja DHCP ovat yleisiä UDP käyttäviä. UDP skannaus on hitaampaa ja vaikeampaa, kuin TCP. UDP skannauksen voi lisätä SYN skannauksen kanssa `-sS` tarkistaakseen molemmat samalla skannauksella.
 
 ***
 ### KKO 2003:36. Alaikäinen tuomittiin Osuuspankkikeskuksen porttiskannaamisesta, korkeimman oikeuden ratkaisu.
 
+- 17-vuotias "osaava" nuori porttiskannasi pankin sivut.
+- Syytetty ei ollut tehnyt muuta, mutta piilevät kustannukset pankille olivat niin suuret, että oikeudesta lähdettiin hakemaan korvauksia
+- Tuomion lievennystä oli haettu, mutta oikeus katsoi syytetyn tietotaidon olevan sillä tasolla, että alennusta ei tehty.
+
 ***
-### Vapaavalintainen läpikävely 0xdf tai ippsec (Kannattaa valita helppo; esim "Base Points: Easy")
+## a) Asenna Kali virtuaalikoneeseen
+
+- Asensin Kalin valmiin vboxin sivulta [https://www.kali.org/get-kali/#kali-virtual-machines](https://www.kali.org/get-kali/#kali-virtual-machines)
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/aa932635-cd1b-4c40-ad7d-ac4bef088ddc)
+
+
+## b) Asenna Metasploitable 2 virtuaalikoneeseen
+
+- Asensin Metasploitable 2:n lataamalla [https://sourceforge.net/projects/metasploitable/files/Metasploitable2/](https://sourceforge.net/projects/metasploitable/files/Metasploitable2/) Metasploitable 2 zipin ja seuraamalla [https://www.geeksforgeeks.org/how-to-install-metasploitable-2-in-virtualbox/](https://www.geeksforgeeks.org/how-to-install-metasploitable-2-in-virtualbox/) ohjeita.
+
+## c) Tee koneille virtuaaliverkko, jossa Kalin ja Metasploitablen välillä on host-only network
+
+Loin koneiden välille virtuaalisen verkon Network asetuksissa.
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/649ae896-0fb4-4d89-8d4f-70b8219c5a31)
+
+Testasin molemmissa ping ja curl
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/4dd8e7f8-133d-4ef2-b086-4ed8fc4fc629)
+
+Yhteys Kalista metasploitableen onnistuu:
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/199a62b2-ced2-4b74-9cad-a1afe3bb2877)
+
+***
+## d) Etsi Metasploitable porttiskannaamalla (db_nmap -sn). Katso, ettei skannauspaketteja vuoda Internetiin - kannattaa irrottaa koneet netistä skannatessa. Seuraa liikennettä snifferillä.
+
+- Käynnistin Metasploitin Kalilla komennolla `sudo msfdb init && msfconsole`
+- Käynnistin Wiresharkin
+- `db_nmap -sn <ip>`
+- Wireshark havaitsi TCP protokollan pakettien vaihtoa koneiden välillä.
+
+## e) Porttiskannaa Metasploitable huolellisesti (db_nmap -A -p0-). Analysoi tulos. Kerro myös ammatillinen mielipiteesi (uusi, vanha, tavallinen, erikoinen), jos jokin herättää ajatuksia. Seuraa liikennettä snifferillä.
+
+- Wireshark skannasi 117722 pakettia
+- Silmään erityisesti pisti portti `513/tcp open login`, `514/tcp open shell Netkit rshd` ja `3306/tcp open mysql MySQL 5.0.51a-3ubuntu5`. Nämä ainakin omaan korvaan kuulostavat sellaisilta, jotka olisivat mahdollisesti todella haavoittuvaisia hyökkäykselle.
+
+## f) Tallenna portiskannauksen tulos tiedostoon käyttäen nmap:n omaa tallennusta (nmap -oA foo).'
+
+- Tallensin tulokset tiedostoon komennolla `nmap -oA foo <ip>`
+- Tulokset tallentuivat tiedostomuotoihin .gnmap .nmap ja .xml
+
+## Tallenna shell-sessio tekstitiedostoon script-työkalulla (script -fa log001.txt)
+
+- Tallensin shell-session edellisestä tehtävästä tiedostoon log001.txt
+
+## h) Etsi kaikki maininnat jostain osoitteesta, palvelusta tai vastaavasta kaikista tallennetuista tuloksista ja lokeista (grep -ir tero).
+
+- Tulokset `grep -ir tero` ajon jälkeen.
+
+
+## i) Anna esimerkit nmap ajonaikaisista toiminnosta. (man nmap: runtime interaction)
+
+- `v / V` Lisää/Vähennä monisanaisuustasoa
+- `d / D` Lisää/Vähennä debuggauksen tasoa
+- `p / P` Päälle/Pois pakettien jäljitys
+- `?` Printtaa runtime interaction help ruudun
+- Mikä vaan muu: printtaa terminaaliin status viestin
+
+***
+#### Tehtävät palautettiin deadlinesta myöhässä Sunnuntai-illalla.
