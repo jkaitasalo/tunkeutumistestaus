@@ -33,7 +33,8 @@
 ***
 ## a) Asenna Kali virtuaalikoneeseen
 
-- Asensin Kalin valmiin vboxin sivulta [https://www.kali.org/get-kali/#kali-virtual-machines](https://www.kali.org/get-kali/#kali-virtual-machines)
+- Asensin Kalin valmiin vboxin sivulta
+[https://www.kali.org/get-kali/#kali-virtual-machines](https://www.kali.org/get-kali/#kali-virtual-machines)
 ![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/aa932635-cd1b-4c40-ad7d-ac4bef088ddc)
 
 
@@ -57,26 +58,42 @@ Yhteys Kalista metasploitableen onnistuu:
 
 - Käynnistin Metasploitin Kalilla komennolla `sudo msfdb init && msfconsole`
 - Käynnistin Wiresharkin
+![Screenshot 2024-04-14 201255](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/7f35a351-db29-430d-9ec7-b9ae9469185f)
+
 - `db_nmap -sn <ip>`
+![Screenshot 2024-04-14 201716](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/bb30025e-c513-4c19-ba40-0aa6a1eb4060)
+
 - Wireshark havaitsi TCP protokollan pakettien vaihtoa koneiden välillä.
+![Screenshot 2024-04-14 201744](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/02acef08-29aa-43e3-ae46-0c465d7c62ee)
+
 
 ## e) Porttiskannaa Metasploitable huolellisesti (db_nmap -A -p0-). Analysoi tulos. Kerro myös ammatillinen mielipiteesi (uusi, vanha, tavallinen, erikoinen), jos jokin herättää ajatuksia. Seuraa liikennettä snifferillä.
 
 - Wireshark skannasi 117722 pakettia
+![Screenshot 2024-04-14 203844](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/fe3937ff-1e08-48f1-a8f5-d4d7955526e9)
+
 - Silmään erityisesti pisti portti `513/tcp open login`, `514/tcp open shell Netkit rshd` ja `3306/tcp open mysql MySQL 5.0.51a-3ubuntu5`. Nämä ainakin omaan korvaan kuulostavat sellaisilta, jotka olisivat mahdollisesti todella haavoittuvaisia hyökkäykselle.
+![Screenshot 2024-04-14 203959](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/6f9bc4f4-c3d2-4992-b7d0-d2987b70cad6)
+
 
 ## f) Tallenna portiskannauksen tulos tiedostoon käyttäen nmap:n omaa tallennusta (nmap -oA foo).'
 
 - Tallensin tulokset tiedostoon komennolla `nmap -oA foo <ip>`
+![Screenshot 2024-04-14 204750](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/63507b0b-a06c-40c0-923a-03331da36327)
+
 - Tulokset tallentuivat tiedostomuotoihin .gnmap .nmap ja .xml
 
 ## Tallenna shell-sessio tekstitiedostoon script-työkalulla (script -fa log001.txt)
 
 - Tallensin shell-session edellisestä tehtävästä tiedostoon log001.txt
+![Screenshot 2024-04-14 205747](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/497cf685-daf3-4f2b-b0e3-7f1c76536adb)
+
 
 ## h) Etsi kaikki maininnat jostain osoitteesta, palvelusta tai vastaavasta kaikista tallennetuista tuloksista ja lokeista (grep -ir tero).
 
 - Tulokset `grep -ir tero` ajon jälkeen.
+![Screenshot 2024-04-14 205906](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/5966148c-e5ea-4936-914e-96573c6c5471)
+
 
 
 ## i) Anna esimerkit nmap ajonaikaisista toiminnosta. (man nmap: runtime interaction)
@@ -89,3 +106,8 @@ Yhteys Kalista metasploitableen onnistuu:
 
 ***
 #### Tehtävät palautettiin deadlinesta myöhässä Sunnuntai-illalla.
+
+***
+## Lähteet
+
+
