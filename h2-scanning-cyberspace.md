@@ -91,7 +91,7 @@ Yhteys Kalista metasploitableen onnistuu:
 
 ## h) Etsi kaikki maininnat jostain osoitteesta, palvelusta tai vastaavasta kaikista tallennetuista tuloksista ja lokeista (grep -ir tero).
 
-- Tulokset `grep -ir tero` ajon jälkeen.
+- Esimerkkihaku oli hauska, joten ajoin suoraan sillä. Tulokset `grep -ir tero` ajon jälkeen:
 ![Screenshot 2024-04-14 205906](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/5966148c-e5ea-4936-914e-96573c6c5471)
 
 
@@ -109,5 +109,11 @@ Yhteys Kalista metasploitableen onnistuu:
 
 ***
 ## Lähteet
-
+> - Port Scanning Basics, https://nmap.org/book/man-port-scanning-basics.html
+> - Port Scanning Techniques, https://nmap.org/book/man-port-scanning-techniques.html
+> - KKO:2003:36, https://finlex.fi/fi/oikeus/kko/kko/2003/20030036
+> - Kali: Pre-built Virtual Machines, https://www.kali.org/get-kali/#kali-virtual-machines
+> - SourceForge: Metasploitable, https://sourceforge.net/projects/metasploitable/files/Metasploitable2/
+> - Geeksforgeeks: How to install Metasploitable 2 in VirtualBox, https://www.geeksforgeeks.org/how-to-install-metasploitable-2-in-virtualbox/
+> - Runtime Interaction, https://nmap.org/book/man-runtime-interaction.html
 
