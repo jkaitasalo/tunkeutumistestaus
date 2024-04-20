@@ -280,6 +280,8 @@ Tämän jälkeen filteröidään tulokset `-fs 1495` parametrillä
 Ja niin sieltä löydetäänkin yksi polku
 
 ***
+### Palautettu tässä vaiheessa
+***
 ## e) Tee msfvenom-työkalulla haittaohjelma, joka soittaa kotiin (reverse shell). Ota yhteys vastaan metasploitin multi/handler -työkalulla.
 
 ***
