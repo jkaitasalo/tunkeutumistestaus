@@ -22,3 +22,8 @@
 ***
 ## a) Asenna Hashcat ja testaa sen toiminta murtamalla esimerkkisalasana.
 
+***
+## Lähteet:
+
+- Karvinen 2023: [Find Hidden Web Directories - Fuzz URLs with ffuf](https://terokarvinen.com/2023/fuzz-urls-find-hidden-directories/)
+- Daniel Miessler, [SecLists](https://github.com/danielmiessler/SecLists)
