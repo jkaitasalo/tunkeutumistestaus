@@ -177,10 +177,116 @@ Latasin tero.zip ja yritin `unzip tero.zip` ihan vain nähdäkseni, että tiedos
 
 - Navigoitiin vielä purettuun kansioon ja luettiin mitä salaisuuksia `SECRET.md` piti sisällään
 
+## d) Fuffme. Asenna [Ffufme](https://terokarvinen.com/2023/fuffme-web-fuzzing-target-debian/) harjoitusmaali paikallisesti omalle koneellesi. Ratkaise tehtävät (kaikki paitsi ei "Content Discovery - Pipes")
+
+Alotin tehtävän perinteisesti esivaatimuksien asennuksella. Tässä kohtaa käytin paljon enemmän aikaa, kuin tekisi mieli myöntää, mutta mitä tästä opittiin oli se, että kannattaa katsoa tarkkaan oikeinkirjoitus.. etenkin `ffuf` kaltaisten sanojen kanssa.. ongelmana oli väärinkirjoitettu `fuff` ..
+
+Tästä kompastuskivestä eteenpäin päästyä, saatiin asennukset hyvin pulkkaan ja kontti pyörimään
+
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/4b1b99c7-e22f-48f3-84ef-8b4e0ee70a76)
+
+Seuraavaksi latailtiin sanalistoja ilman ongelmia
+
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/2bcff330-05b5-48bf-a1cf-64aa79d3bfa1)
 
 
+### Basic Content Discovery
+
+Ensimmäisessä tehtävässä tehdään ihan perus fuzzaus, ei mitään erikoista
+
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/f73a01fc-0144-48ab-8aff-b54ff077ccdc)
+
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/c91fbc40-fced-49d1-9969-a642f93aa04c)
+
+Tehtävänannon mukaiset polut löytyvät!
+
+### Content Discovery With Recursion
+
+Seuraavassa tehtävässä tehdään samankaltainen skannaus sillä poikkeuksella, että lisätään komentoon `-recursion` switch, joka hakemisto löydettyään siirtyy siihen hakemistoon aloittamaan saman skannauksen. Tämä looppi toistuu, kunnes ei enää löydy tuloksia
+
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/0a363b70-a57a-4019-bbae-8ce062acc904)
+
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/20afd8f3-fe28-4ddf-9878-fca1b9c213e6)
+
+Tehtävänannon mukaiset polut löytyvät. Käytin vielä `curl <url>` komentoa tämän ja edellisen tehtävän polkuihin
+
+### Content Discovery With File Extensions
+
+Seuraavassa tehtävässä kurkataan `-e` switchillä file extensionin `.log` polkuja
+
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/057351e0-665a-46b7-86df-b5f5002a5189)
+
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/fdd1a067-a362-4bc8-9ceb-9c645a6841cf)
+
+Polku löytyy!
+
+### No 404 Status
+
+Testataan ensin perus fuzzauskomentoa ja sen jälkeen edetään sopivin keinoin
+
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/0c551f77-a092-4807-a261-ed364503aa42)
+
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/6af9a190-0544-4574-ad1c-419a7e8e9891)
+
+Läjä `Size: 669` polkuja löytyykin
+
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/ba041662-1940-4c25-ad6a-06b07a169927)
+
+Fuzzaus `-fs` filter size parametrillä löytää meille `secret` polun. Tämän `curl` palauttaa oudon vastauksen muista poiketen. En tiedä pitikö näitä edes curlata
+
+### Param Mining
+
+Haetaan `localhost/cd/param/data`:lle puuttuvaa parametria fuzzaamalla `localhost/cd/param/data?FUZZ`
+
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/41148567-3237-45cc-93e1-073e67ace389)
+
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/abf4dab6-6078-4003-b957-91351563188d)
+
+Parametri löytyy!
+
+### Rate Limited
+
+Fuzzaus `-mc` match content parametrillä
+
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/104afde0-24db-4374-9aea-fedadbcbc79c)
+
+Läjä polkuja ja jäähyt. Eteneminen hidastuu todella paljon
+
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/944b0c50-75af-4933-b85e-a3d8bf112c2c)
+
+Lisätään fuzziin `-t 5` threads 5 ja `-p 0.1` pause 0.1, jotka yhdessä saavat aikaan sen, että fuzzaus tapahtuu 50 pyyntöä sekunnissa
+
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/d3b9d166-0441-4894-9b67-a7650ae83167)
+
+Polku `oracle` löytyy
+
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/ad9992bb-2287-47b7-891c-fe95a19fa169)
 
 
+### Subdomains - Virtual Host Enumeration
+
+Lopuksi fuzzataan urlista subdomainia virtuaalisten hostien avulla. `-H "Host: FUZZ.<url>`
+
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/4fe569de-4410-4364-b7a5-6899d0ec954a)
+
+Fuzzaus palauttaa läjän `Size: 1495` polkuja
+
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/791efc99-b7ea-40d4-8634-78553a060dca)
+
+Tämän jälkeen filteröidään tulokset `-fs 1495` parametrillä
+
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/10c74365-684b-4e47-a495-8c0177e1485a)
+
+Ja niin sieltä löydetäänkin yksi polku
+
+***
+## e) Tee msfvenom-työkalulla haittaohjelma, joka soittaa kotiin (reverse shell). Ota yhteys vastaan metasploitin multi/handler -työkalulla.
+
+***
+## f) Asenna Windows virtuaalikoneeseen. Voi olla esimerkiksi Metasploitable 3 tai Microsoftin sivuilta saatava ilmainen kokeiluversio.
+
+***
+## g) Ota Windowsiin graafinen etähallintayhteys Linuxista. Käytä RDP:tä eli Remote Desktop Protocol.
 
 ***
 ## Lähteet:
