@@ -64,18 +64,32 @@ Mitä enemmän prosessointitehoa, sitä nopeampaa on Hashcatin käyttö
     - Lopuksi itse kokoaminen `make -s clean && make -sj4` komennolla
   - uudet skriptit löytyvät run/ kansiosta `cd ../run/`
   - `$ $HOME/john/run/john ` John the Ripper ajo
-- salasanasuojatun zip tiedoston kräkkääminen `$ $HOME/john/run/zip2john tero.zip >tero.zip.hash` tämä printtaa muutaman rivin zip tiedostosta
+- salasanasuojatun zip tiedoston murtaminen `$ $HOME/john/run/zip2john tero.zip >tero.zip.hash` tämä printtaa muutaman rivin zip tiedostosta
   - tämän jälkeen John:n sanakirja hyökkäys tiedoston hashia vastaan
   - `$ $HOME/john/run/john tero.zip.hash `
     - tärkeä rivi tuloksesta `butterfly        (tero.zip/secretFiles/SECRET.md)  `
   - zipin purku juuri saadulla salasanalla `unzip tero.zip` ja salasanaa pyydettäessä, kirjoitetaan se
   - `cat secretFiles/SECRET.md `
 
-John the Ripper:llä pystyy kräkkäämään todella useita [formaatteja](https://terokarvinen.com/2023/crack-file-password-with-john/#:~:text=So%20many%20files,wpapcap%20zed%20zip) mm. 
+John the Ripper:llä pystyy murtamaan todella useita [formaatteja](https://terokarvinen.com/2023/crack-file-password-with-john/#:~:text=So%20many%20files,wpapcap%20zed%20zip) mm. 
   > 1password 7z DPAPImk adxcsouf aem aix aix andotp androidbackup androidfde ansible apex apop applenotes aruba atmail axcrypt bestcrypt bestcryptve bitcoin bitlocker bitshares bitwarden bks blockchain cardano ccache cisco cracf dashlane deepsound diskcryptor dmg dmg ecryptfs ejabberd electrum encdatavault encfs enpass ethereum filezilla geli gpg hccap hccapx htdigest ibmiscanner ikescan itunes_backup iwork kdcdump keepass keychain keyring keystore kirbi known_hosts krb kwallet lastpass ldif libreoffice lion lion lotus luks mac mac mcafee_epo monero money mongodb mosquitto mozilla multibit neo network office openbsd_softraid openssl padlock pcap pdf pem pfx pgpdisk pgpsda pgpwde prosody ps_token pse putty pwsafe racf radius radius rar restic sap sense signal sipdump ssh sspr staroffice strip telegram test_tezos tezos truecrypt uaf vdi vmx wpapcap zed zip
 
 ***
 ## a) Asenna Hashcat ja testaa sen toiminta murtamalla esimerkkisalasana.
+
+- Asensin Hashcatin ilman ongelmia ja loin hashed kansion `mkdir hashed` komennolla
+- Latasin itselleni SecLists dictionaryn ja testasin tutoriaalissa olevat `head` ja `wc -l` komennot
+- Laitoin `hashid -m 6b1628b016dff46e6fa35684be6acc96` tunnistamaan hashin
+
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/19c0a90c-42e7-4c9a-9d7b-f4ad33812ad6)
+- Tämän jälkeen syötin `hashcat -m 0 '6b1628b016dff46e6fa35684be6acc96' rockyou.txt -o solved`, joka siis lähtee murtamaan hashia `rockyou.txt`:n sanakirjalla ja tallentaa `solved` tiedostoon onnistuneen murron tuloksen
+
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/0318cdac-b918-4601-9c48-1cf6b5661f65)
+- Sehän lähti raksuttamaan. Huomasin, että murron käynnistyksen yhteydessä ohjelma asettaa tiettyjä toimintoja esimerkiksi ylikuumentumista varten varotoimenpiteeksi keskeyttämisen, jos lämmöt nousevat yli 90 C.
+- Sieltähän se tulos saatiin onnistuneesti. Salasana on tuolle hashille siis `summer`. Koneen rautaa hyödynnettiin 51% kapasiteetista
+
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/200ad101-b68c-4d2b-9228-5f3ed931acd4)
+
 
 
 
