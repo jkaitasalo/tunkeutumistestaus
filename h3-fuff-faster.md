@@ -51,7 +51,8 @@ Mitä enemmän prosessointitehoa, sitä nopeampaa on Hashcatin käyttö
 - Edellytyksien lataaminen ja asennus
   - `sudo apt-get update`
   - `sudo apt-get -y install micro bash-completion git build-essential libssl-dev zlib1g zlib1g-dev zlib-gst libbz2-1.0 libbz2-dev atool zip wget`
-    - ![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/540ff3a1-eb39-4042-9473-8db27c7ac760)
+
+    ![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/540ff3a1-eb39-4042-9473-8db27c7ac760)
 - John the Ripper, Jumbo version lataaminen ja kokoaminen
   - `git clone --depth=1 https://github.com/openwall/john.git` Ladataan lähdekoodi kloonaamalla repo gitillä
   - > $ cd john/src/
