@@ -28,3 +28,39 @@
 - siirryin google.com:iin ja huomaan ZAP:n nappaavan liikennettä ja yhteyden olevan `Secure "Verified by ZAP Root CA"`
 
 ![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/c9edc593-2b24-493a-8741-68deb2a69f28)
+
+
+## b) Kettumaista. Asenna FoxyProxy Standard Firefox Addon, ja lisää ZAP proxyksi siihen. Käytä FoxyProxyn "Patterns" -toimintoa, niin että vain valitsemasi weppisivut ohjataan Proxyyn. (Läksyssä ohjataan varmaankin PortSwigger Labs ja localhost.)
+
+- Edellisessä tehtävässä asennettiinkin jo FoxyProxy ja lisättiin ZAP proxyksi
+- Lisätään Whitelist (include) toiminnolla localhost ja portswigger proxyttavien listalle, jolloin muuta ei välitetä proxylle
+
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/0f1df049-4241-4a9e-9a92-7f3bac6d8de2)
+
+- Testasin vielä mennä googleen ja totesinkin ZAP:sta, ettei ohjelmaan tule merkintöjä
+
+## PortSwigger Labs. Ratkaise tehtävät.
+
+### c) [Insecure direct object references](https://portswigger.net/web-security/access-control/lab-insecure-direct-object-references)
+### d) [File path traversal, simple case](https://portswigger.net/web-security/file-path-traversal/lab-simple)
+### e) [File path traversal, traversal sequences blocked with absolute path bypass](https://portswigger.net/web-security/file-path-traversal/lab-absolute-path-bypass)
+### f) [File path traversal, traversal sequences stripped non-recursively](https://portswigger.net/web-security/file-path-traversal/lab-sequences-stripped-non-recursively)
+### g) [Server-side template injection with information disclosure via user-supplied objects](https://portswigger.net/web-security/server-side-template-injection/exploiting/lab-server-side-template-injection-with-information-disclosure-via-user-supplied-objects)
+### h) [Basic SSRF against the local server](https://portswigger.net/web-security/ssrf/lab-basic-ssrf-against-localhost)
+### i) [Reflected XSS into HTML context with nothing encoded](https://portswigger.net/web-security/cross-site-scripting/reflected/lab-html-context-nothing-encoded)
+### j) [Stored XSS into HTML context with nothing encoded](https://portswigger.net/web-security/cross-site-scripting/stored/lab-html-context-nothing-encoded)
+
+
+
+
+## Lähteet
+
+- https://terokarvinen.com/2024/eettinen-hakkerointi-2024/
+- https://portswigger.net/web-security/access-control/lab-insecure-direct-object-references
+- https://portswigger.net/web-security/file-path-traversal/lab-simple
+- https://portswigger.net/web-security/file-path-traversal/lab-absolute-path-bypass
+- https://portswigger.net/web-security/file-path-traversal/lab-sequences-stripped-non-recursively
+- https://portswigger.net/web-security/server-side-template-injection/exploiting/lab-server-side-template-injection-with-information-disclosure-via-user-supplied-objects
+- https://portswigger.net/web-security/ssrf/lab-basic-ssrf-against-localhost
+- https://portswigger.net/web-security/cross-site-scripting/reflected/lab-html-context-nothing-encoded
+- https://portswigger.net/web-security/cross-site-scripting/stored/lab-html-context-nothing-encoded
