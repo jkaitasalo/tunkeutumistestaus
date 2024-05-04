@@ -3,14 +3,26 @@
 
 - OWASP 2021: OWASP Top 10:2021
   - A01:2021 – Broken Access Control (IDOR ja path traversal ovat osa tätä)
+    - Tämä haavoittuvuus mahdollistaa väärien ihmisten pääsyn heille saavuttamattomissa olevaan tietoon
+    - Pääsyvalvonta valvoo, että käyttäjät pääsevät käsiksi vain heidän oikeuksille tarkoitettuun sisältöön
+    - Suuri tietomurron vaara, jos valvontaa ei suoriteta riittävän hyvällä tasolla
   - A10:2021 – Server-Side Request Forgery (SSRF)
+    - Haavoittuvuuksia tapahtuu kun ja jos sovellus käsittelee käyttäjän URL pyynnön ilman sen varmennusta.
+    - Palomuurikaan ei välttämättä voi estää tällaista hyökkäystä
+    - Ongelmat ovat yleistymässä pilvipalveluiden takia
 - PortSwigget Academy:
   - Insecure direct object references (IDOR)
+    - URL osotteiden suora manipulointi, joka mahdollistaa pääsyn mm. tiedostoihin yms.
+    - Esimerkiksi kenttään syötetty `jotain/user_account?user_id=14` 
   - Path traversal
+    - URLin muokkaaminen siten, että voidaan navigoida sivuston hakemistossa
+    - esim. `../../hakemisto` menee hakemistossa kaksi tasoa taaksepäin ja siirtyy siellä olevaan hakemistoon "hakemisto", jos sellainen löytyy
   - Server-side template injection
+    - template palvelun syntaksia hyödyntävä hyökkäys. Erittäin vaarallinen, koska komennon suoritetaan palvelimella.
   - Server-side request forgery (SSRF)
+    - Hyökkääjän on mahdollista ottaa palvelin ja pakottaa se lähettämään pyyntöjä muokkaamalla itse sovelluksen lähettämiä pyyntöjä ja näin saaden pääsyn mm. palvelimen sisäverkkoon.
   - Cross-site scripting
-- Karvinen 2020: Using New Webgoat 2023.4 to Try Web Hacking
+    - Tämä haavoittuvuus antaa hyökkääjälle mahdollisuuden injektoida sivustolle / appiin koodia, joka suorittaa toisen käyttäjän puolella jotain koodia tms.
 
 
 ## a) Totally Legit Sertificate. Asenna OWASP ZAP, generoi CA-sertifikaatti ja asenna se selaimeesi. Laita ZAP proxyksi selaimeesi. Laita ZAP sieppaamaan myös kuvat, niitä tarvitaan tämän kerran kotitehtävissä. Osoita, että hakupyynnöt ilmestyvät ZAP:n käyttöliittymään. (Ei toimi localhost:lla ilman Foxyproxya)
