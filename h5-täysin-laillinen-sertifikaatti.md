@@ -92,6 +92,7 @@ Labran avattuani ZAP nappasi heti kaikki sivulle latautuneet kuvat. File Path Tr
 
 ### f) [File path traversal, traversal sequences stripped non-recursively](https://portswigger.net/web-security/file-path-traversal/lab-sequences-stripped-non-recursively)
 
+
 - Kaappasin ZAP:lla sivustolta jälleen kuvan.
 
 ![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/266cba64-2756-4a3f-8caf-874f9addb4c4)
@@ -107,8 +108,51 @@ Labran avattuani ZAP nappasi heti kaikki sivulle latautuneet kuvat. File Path Tr
 
 ### g) [Server-side template injection with information disclosure via user-supplied objects](https://portswigger.net/web-security/server-side-template-injection/exploiting/lab-server-side-template-injection-with-information-disclosure-via-user-supplied-objects)
 
+- Kirjauduin käyttäjätunnuksilla sisään. Kuva paketista.
+
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/151b7937-66fb-46fc-96ec-fd461cbc2d9d)
+
+- Yritin laittaa templateen suoraan `{{secret_key}}` sormet ristissä toivoen, että se palauttaa avaimen. Ei palauttanut muuta kuin tyhjää.
+- Seuraavaksi yritin artikkelista apinoiden `$_GET['secret.key']`, mutta sain erroria.
+
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/af7e7ce2-547d-49ec-892e-818cde3e2a8b)
+
+  - Virheilmoitus päästi minut itse varsinaisen templatetyökalun jäljille
+
+- Djangon dokumentaatiosta löytyi auto-escape funktionaalisuuden ohitus safe filterillä, mutta siitä ei ollut hyötyä
+
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/40b0f2c8-e937-492e-a928-8f1802504da2)
+
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/4ed6519f-20c7-4a89-a548-7abc7a4cc67c)
+
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/f3dde360-d09d-4d83-8fe9-95a16357c032)
+
+- Printtaa pelkkää tyhjää.
+- Löysin debug funktionaalisuutta, jos se on päällä.
+
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/19aaf149-8002-441a-920f-5242ad547ff9)
+
+- Vaikuttaa, että sivusto on julkaistu ilman varotoimintojen käyttöönottoa.
+
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/177c7b58-e571-4c6e-9417-04998f220bda)
+
+- Debug antoi vinon pinon erilaisia objekteja ja moduuleja. Ensimmäisenä silmään osui kuitening settings. Yritin kuitenkin debugista hakea ctrl+f 'secret' ja 'key', mutta tuloksetta.
+
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/4dbff7f1-7912-4b41-b1a8-20d7d79e2ca1)
+
+- Settings objekti palauttaa UserSettingsHolder nimisen palikan. Takaisin djangon dokumentaation pariin, tällä kertaa suoraan hakuun tuo palikka.
+
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/6899c6a9-4f0f-4e43-8150-a8a942bb58ad)
+
+- Täältähän löytyi hyvinkin raskauttavaa tavaraa. Tällä voi lähteä toteuttamaan tuosta settings.py ja SECRET_KEY yhdistelmällä
+
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/c5ca066b-fc47-48d6-9b45-a839e334d544)
+
+- Epämääräinen merkkijono sieltä löytyi ja kun sitä kokeili antaa vastaukseksi olikin lopputulos ilahduttava.
+
 
 ### h) [Basic SSRF against the local server](https://portswigger.net/web-security/ssrf/lab-basic-ssrf-against-localhost)
+
 
 - lisäämällä /admin sivuston osoitteen loppuun tervehtii meitä tämänlainen sivu:
 
@@ -164,7 +208,7 @@ Labran avattuani ZAP nappasi heti kaikki sivulle latautuneet kuvat. File Path Tr
 
 ![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/1d85928d-4282-40ca-bc33-4bdd241f29d8)
 
-- Kommentti postattua palauttikini sivu heti tuon LAB Solved tekstin.
+- Kommentti postattua palauttikin sivu heti tuon LAB Solved tekstin.
 
 ![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/1f7ad49d-218c-4c2e-b1ea-7e2ccdcbb360)
 
@@ -181,3 +225,5 @@ Labran avattuani ZAP nappasi heti kaikki sivulle latautuneet kuvat. File Path Tr
 - https://portswigger.net/web-security/ssrf/lab-basic-ssrf-against-localhost
 - https://portswigger.net/web-security/cross-site-scripting/reflected/lab-html-context-nothing-encoded
 - https://portswigger.net/web-security/cross-site-scripting/stored/lab-html-context-nothing-encoded
+- https://docs.djangoproject.com/en/5.0/topics/templates/
+- https://docs.djangoproject.com/en/5.0/ref/settings/
