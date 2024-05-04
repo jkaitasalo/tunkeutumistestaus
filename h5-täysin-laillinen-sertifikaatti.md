@@ -1,5 +1,6 @@
 ## x) Lue/katso ja tiivistä
 
+
 - OWASP 2021: OWASP Top 10:2021
   - A01:2021 – Broken Access Control (IDOR ja path traversal ovat osa tätä)
   - A10:2021 – Server-Side Request Forgery (SSRF)
@@ -11,7 +12,9 @@
   - Cross-site scripting
 - Karvinen 2020: Using New Webgoat 2023.4 to Try Web Hacking
 
+
 ## a) Totally Legit Sertificate. Asenna OWASP ZAP, generoi CA-sertifikaatti ja asenna se selaimeesi. Laita ZAP proxyksi selaimeesi. Laita ZAP sieppaamaan myös kuvat, niitä tarvitaan tämän kerran kotitehtävissä. Osoita, että hakupyynnöt ilmestyvät ZAP:n käyttöliittymään. (Ei toimi localhost:lla ilman Foxyproxya)
+
 
 - Loin CA-sertifikaatin ZAP:n `Tools>Options>Network>Server Certificates` valikossa Generate ja Save helppoon tiedostosijaintiin.
 
@@ -32,28 +35,61 @@
 
 ## b) Kettumaista. Asenna FoxyProxy Standard Firefox Addon, ja lisää ZAP proxyksi siihen. Käytä FoxyProxyn "Patterns" -toimintoa, niin että vain valitsemasi weppisivut ohjataan Proxyyn. (Läksyssä ohjataan varmaankin PortSwigger Labs ja localhost.)
 
+
 - Edellisessä tehtävässä asennettiinkin jo FoxyProxy ja lisättiin ZAP proxyksi
 - Lisätään Whitelist (include) toiminnolla localhost ja portswigger proxyttavien listalle, jolloin muuta ei välitetä proxylle
 
-![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/0f1df049-4241-4a9e-9a92-7f3bac6d8de2)
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/f2d066f6-2848-4752-a6e3-00b07abd523a)
 
 - Testasin vielä mennä googleen ja totesinkin ZAP:sta, ettei ohjelmaan tule merkintöjä
 
+
 ## PortSwigger Labs. Ratkaise tehtävät.
 
+
 ### c) [Insecure direct object references](https://portswigger.net/web-security/access-control/lab-insecure-direct-object-references)
+
+
+Tehtävänannossa vihjattiin, että labra tallentaa käyttäjien chättilogit suoraan serverin tiedostojärjestelmään. Lähdin siis tutkimaan sivuston chättiä.
+
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/400bdf99-9586-47ca-8f3d-3abaf4823e11)
+
+Chätistä pystyi lataamaan itselleen talteen login käydystä keskustelusta. ZAP:n puolella ilmestyi GET-pyyntö, jossa osana pyyntöä oli tosiaan tuo tekstitiedosto, joka omalle koneelle latautui. Huomasin myös, että ladattu tiedosto oli nimeltää `2.txt` ja mietinkin, ettei olisi niinkin helppo tehtävä, kuin selvittää onko `1.txt` logitiedosto olemassa.
+
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/6792b0ee-a5a8-4ac6-aa01-5689d595b9d6)
+
+Korvasin ZAP:n Requester toiminnallisuudella tuon GET pyyntöön haettavan tiedoston nimeen '2.txt' sijaan '1.txt' ja sieltähän saatiin vastauksena chättilogit toisen käyttäjän käymistä keskusteluista aspan kanssa, joka paljasti meille tehtävään vaadittavan salasanan.
+
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/77d99e06-d376-49ea-b24a-71dcd619dc09)
+
+
 ### d) [File path traversal, simple case](https://portswigger.net/web-security/file-path-traversal/lab-simple)
+
+
+
+
 ### e) [File path traversal, traversal sequences blocked with absolute path bypass](https://portswigger.net/web-security/file-path-traversal/lab-absolute-path-bypass)
+
+
 ### f) [File path traversal, traversal sequences stripped non-recursively](https://portswigger.net/web-security/file-path-traversal/lab-sequences-stripped-non-recursively)
+
+
 ### g) [Server-side template injection with information disclosure via user-supplied objects](https://portswigger.net/web-security/server-side-template-injection/exploiting/lab-server-side-template-injection-with-information-disclosure-via-user-supplied-objects)
+
+
 ### h) [Basic SSRF against the local server](https://portswigger.net/web-security/ssrf/lab-basic-ssrf-against-localhost)
+
+
 ### i) [Reflected XSS into HTML context with nothing encoded](https://portswigger.net/web-security/cross-site-scripting/reflected/lab-html-context-nothing-encoded)
+
+
 ### j) [Stored XSS into HTML context with nothing encoded](https://portswigger.net/web-security/cross-site-scripting/stored/lab-html-context-nothing-encoded)
 
 
 
 
 ## Lähteet
+
 
 - https://terokarvinen.com/2024/eettinen-hakkerointi-2024/
 - https://portswigger.net/web-security/access-control/lab-insecure-direct-object-references
