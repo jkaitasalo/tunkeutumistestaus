@@ -110,13 +110,63 @@ Labran avattuani ZAP nappasi heti kaikki sivulle latautuneet kuvat. File Path Tr
 
 ### h) [Basic SSRF against the local server](https://portswigger.net/web-security/ssrf/lab-basic-ssrf-against-localhost)
 
+- lisäämällä /admin sivuston osoitteen loppuun tervehtii meitä tämänlainen sivu:
+
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/14af05a4-d7c7-4576-bf31-f5182c0d4bdb)
+
+- Navigoin etsimään haavoittuvuutta tuotetietojen Stock ominaisuudesta
+
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/0a51f4c1-853c-49b8-ab72-0930a934d24f)
+
+- Hetken aikaa ZAP:n nappaamia paketteja tutkittuani sain kiinni paketista, jolla oli Api avain.
+
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/e8a44485-7c63-4479-bec2-f346fbaf832f)
+
+- Muutin api avaimen tilalle `http://localhost/admin` ja sain vastauksena admin käyttöliittymän HTML koodin, johon minulla ei kuitenkaan ollut pääsyä.
+
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/9d121809-1166-45f5-adcc-e9b9a66bf9f8)
+
+- Seuraavaksi jatkoin kyseistä litaniaa muotoon `http://localhost/admin/delete?username=carlos`, joka palautti minulle labran "Solved" paketin
+
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/2806c4dd-405c-47ef-b45d-f37bbaf98be5)
+
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/83c0e6f2-c7ca-4c8a-8e31-17aa5be9d0bf)
+
 
 ### i) [Reflected XSS into HTML context with nothing encoded](https://portswigger.net/web-security/cross-site-scripting/reflected/lab-html-context-nothing-encoded)
+
+
+- Kirjoitin sivun hakukenttään jotain, jotta saan napattua sivulta paketin kyseisestä toiminnasta
+
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/fce73cd9-5e25-4fab-b08f-7155e81f5c5c)
+
+- Bongasin artikkelista vinkin, että kenttään voisi sujauttaa skriptiä muodossa: `<script></script>`. Tehtävänannossa myös vinkattiin `alert()` käyttöä, joten käytin sitä.
+
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/fae10651-b904-41e6-843c-45c932e1dc96)
+
+- Seuraavasta paketista huomasin, että pyyntö muuttaa tuon skript litanian merkit erilaiseen muotoon, jotta palvelin pystyy tunnistamaan ja ajamaan sisällön.
+
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/ff4984e9-1868-4d9f-9950-4319dc4ff409)
+
+- Hetken päästä sivusto palautti paketin onnistuneesta tehtävän suorituksesta.
+
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/9af9ea1b-4106-417e-b5b4-f9a942244b40)
 
 
 ### j) [Stored XSS into HTML context with nothing encoded](https://portswigger.net/web-security/cross-site-scripting/stored/lab-html-context-nothing-encoded)
 
 
+- Tehtävänanto oli suoraviivainen ja käytin edellisestä tehtävästä tuttua `alert()` funktiota
+
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/b99d6439-3fff-4e53-ae6d-4cdeb91539c9)
+
+- ZAP nappasi paketin, jossa näkyykin POST metodin paketti, joka sisältää tuon meidän skriptin, jossa jälleen nuo epämääräiset merkit muunnettu luettavaan muotoon.
+
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/1d85928d-4282-40ca-bc33-4bdd241f29d8)
+
+- Kommentti postattua palauttikini sivu heti tuon LAB Solved tekstin.
+
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/1f7ad49d-218c-4c2e-b1ea-7e2ccdcbb360)
 
 
 ## Lähteet
