@@ -79,7 +79,7 @@ Labran avattuani ZAP nappasi heti kaikki sivulle latautuneet kuvat. File Path Tr
 
 
 - Samalla tavalla, kuin edellisessä kohdassa, ZAP avulla nappasin sivuston kuvat. Etenin yksinkertaisesti artikkelin ohjeita noudattamalla ja esittämillä menetelmillä. Lisäsin 'filename=' perään taas polun `/etc/passwd/`, mutta sain Handlerilta vain .json muodossa vastauksen "No such file"
-- Tämän jälkeen yritin "nested traversal sequences" `....//....//....//etc/passwd`, mutta sekään ei tuottanut tulosta
+- Tämän jälkeen yritin "nested traversal sequences" `....//....//....//etc/passwd/`, mutta sekään ei tuottanut tulosta
 - Pidemmän pähkäilyn ja testailun lopuksi testasin uudemman kerran tuota `/etc/passwd/` ja tällä kertaa se meni läpi (!?)
 
 ![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/f969e9ef-8224-4582-916f-6af42056740c)
@@ -91,6 +91,18 @@ Labran avattuani ZAP nappasi heti kaikki sivulle latautuneet kuvat. File Path Tr
 
 
 ### f) [File path traversal, traversal sequences stripped non-recursively](https://portswigger.net/web-security/file-path-traversal/lab-sequences-stripped-non-recursively)
+
+- Kaappasin ZAP:lla sivustolta jälleen kuvan.
+
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/266cba64-2756-4a3f-8caf-874f9addb4c4)
+
+- Lähdin toteuttamaan ei-rekursiivista etenemistä kohdesijaintiin `....//....//....//etc/passwd/`. Kyseinen menetelmä ohittaa järjestelmään asetettuja varotoimia, jotka yrittävät estää perinteisemmän `../../../` siirtymisen.
+
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/70798f41-348a-4429-afad-f4889046ddc1)
+
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/b96b25b3-c0a6-4039-a093-3ff2c5f60471)
+
+- Tuollahan tuo saatiin maaliin.
 
 
 ### g) [Server-side template injection with information disclosure via user-supplied objects](https://portswigger.net/web-security/server-side-template-injection/exploiting/lab-server-side-template-injection-with-information-disclosure-via-user-supplied-objects)
