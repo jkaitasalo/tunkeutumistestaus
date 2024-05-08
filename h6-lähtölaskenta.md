@@ -57,6 +57,13 @@ ___
 ###### https://www.comparitech.com/net-admin/nmap-nessus-cheat-sheet/
 ___
 
+### Honorable mentions
+
+WADComs interaktiivinen cheat sheet
+- https://wadcoms.github.io/
+
+Hausec pentesting cheat sheet
+- https://hausec.com/pentesting-cheatsheet/
 
 
 
@@ -65,5 +72,10 @@ ___
 
 
 ## Lähteet:
-- Metasploit Cheat Sheet: https://www.comparitech.com/net-admin/metasploit-cheat-sheet/
-- msfvenom cheat sheet: https://www.stationx.net/metasploit-cheat-sheet/
+- Metasploit Cheat Sheet:
+  - https://www.comparitech.com/net-admin/metasploit-cheat-sheet/
+- msfvenom cheat sheet:
+  - https://www.stationx.net/metasploit-cheat-sheet/
+- nmap cheat sheet:
+  - https://www.comparitech.com/net-admin/nmap-nessus-cheat-sheet/
+  - https://www.stationx.net/nmap-cheat-sheet/
