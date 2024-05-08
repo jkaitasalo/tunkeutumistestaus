@@ -1,9 +1,9 @@
 ## a) Cheatsheet
 
+- Metasploit ja Meterpreter:
 
 | **Syntax** | **Description** |
 | :--- | ---: |
-| **METASPLOIT** | Metasploit commands |
 | sysinfo | Display system information |
 | ps | List and display running process |
 | kill (PID) | Terminate a running process |
@@ -20,10 +20,27 @@
 | exit or quit | Exit Meterpreter session |
 | shutdown or reboot | Restart system |
 | channel | Show active channels |
-| asd | asd |
-| asd | asd |
-| asd | asd |
-| asd | asd |
+
+- msfvenom:
+
+| **Switch** | **Syntax** | **Description** |
+| :--- | --- | ---: |
+| -p | – p (Payload option) | Display payload standard options |
+| – l | – l ( list type) | List module type i .e payload, encoders |
+| – f | – f ( format ) | output format |
+| – e | -e (encoder) | Define which encoder to use |
+| -a | – a (Architecture or platform | Define which platform to use |
+| -s | -s (Space) | Define maximum payload capacity |
+| -b | -b (characters) | Define set of characters not to use |
+| – i | – i (Number of times) | Define number of times to use encoder |
+| -x | -x (File name) | Define a custom file to use as template |
+| – o | 	-o (output) | Save a payload |
+| – h | -h | Help |
 
 
 ## b) Review
+
+
+## Lähteet:
+- Metasploit Cheat Sheet: https://www.comparitech.com/net-admin/metasploit-cheat-sheet/
+- 
