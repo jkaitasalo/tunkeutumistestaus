@@ -1,6 +1,6 @@
 ## a) Cheatsheet
-
-- Metasploit ja Meterpreter:
+___
+#### Metasploit  Meterpreter:
 
 | **Syntax** | **Description** |
 | :--- | :--- |
@@ -20,8 +20,10 @@
 | exit or quit | Exit Meterpreter session |
 | shutdown or reboot | Restart system |
 | channel | Show active channels |
+- Lisää: https://github.com/security-cheatsheet/metasploit-cheat-sheet
+___
 
-- msfvenom:
+#### msfvenom:
 
 | **Switch** | **Syntax** | **Description** |
 | :--- | :--- | :--- |
@@ -36,6 +38,27 @@
 | -x | -x (File name) | Define a custom file to use as template |
 | –o | -o (output) | Save a payload |
 | –h | -h | Help |
+___
+
+#### nmap
+
+| **Switch** | **Example** | **Description** |
+| :--- | :--- | :--- |
+| | nmap 192.168.1.1 | Scan a single IP |
+| | nmap 192.168.1.1 192.168.2.1 | Scan specific IPs |
+| | nmap 192.168.1.1-254 | Scan a range |
+| | nmap scanme.nmap.org | Scan a domain |
+| | nmap 192.168.1.0/24 | Scan using CIDR notation |
+| -iL |	nmap -iL targets.txt | Scan targets from a file |
+| -iR | nmap -iR 100 | Scan 100 random hosts |
+| -exclude | nmap -exclude 192.168.1.1 | Exclude listed hosts |
+
+![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/89ddc2d4-e0ca-4f3d-ab45-1cf0a033542f)
+###### https://www.comparitech.com/net-admin/nmap-nessus-cheat-sheet/
+___
+
+
+
 
 
 ## b) Review
@@ -43,4 +66,4 @@
 
 ## Lähteet:
 - Metasploit Cheat Sheet: https://www.comparitech.com/net-admin/metasploit-cheat-sheet/
-- 
+- msfvenom cheat sheet: https://www.stationx.net/metasploit-cheat-sheet/
