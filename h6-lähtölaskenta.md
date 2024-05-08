@@ -3,7 +3,7 @@
 - Metasploit ja Meterpreter:
 
 | **Syntax** | **Description** |
-| :--- | ---: |
+| :--- | :--- |
 | sysinfo | Display system information |
 | ps | List and display running process |
 | kill (PID) | Terminate a running process |
@@ -24,18 +24,18 @@
 - msfvenom:
 
 | **Switch** | **Syntax** | **Description** |
-| :--- | --- | ---: |
-| -p | – p (Payload option) | Display payload standard options |
-| – l | – l ( list type) | List module type i .e payload, encoders |
-| – f | – f ( format ) | output format |
-| – e | -e (encoder) | Define which encoder to use |
-| -a | – a (Architecture or platform | Define which platform to use |
+| :--- | :--- | :--- |
+| -p | –p (Payload option) | Display payload standard options |
+| –l | –l ( list type) | List module type i .e payload, encoders |
+| –f | –f ( format ) | output format |
+| –e | -e (encoder) | Define which encoder to use |
+| -a | –a (Architecture or platform | Define which platform to use |
 | -s | -s (Space) | Define maximum payload capacity |
 | -b | -b (characters) | Define set of characters not to use |
-| – i | – i (Number of times) | Define number of times to use encoder |
+| –i | –i (Number of times) | Define number of times to use encoder |
 | -x | -x (File name) | Define a custom file to use as template |
-| – o | 	-o (output) | Save a payload |
-| – h | -h | Help |
+| –o | -o (output) | Save a payload |
+| –h | -h | Help |
 
 
 ## b) Review
