@@ -53,6 +53,16 @@ ___
 | -iR | nmap -iR 100 | Scan 100 random hosts |
 | -exclude | nmap -exclude 192.168.1.1 | Exclude listed hosts |
 
+#### hashcat
+
+| **Syntax** | **Description** |
+| :--- | :--- |
+| hashid -m \<hash> | Shows the number that's used in the cracking |
+| hashcat -m \<mode> \<hash> \<wordlist> -o \<results file> | Executes the hashcat using a wordlist and selected mode and outputting the results to a selected file |
+| **** | **** |
+| -o | output |
+| -m | mode |
+
 ![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/89ddc2d4-e0ca-4f3d-ab45-1cf0a033542f)
 ###### https://www.comparitech.com/net-admin/nmap-nessus-cheat-sheet/
 ___
@@ -79,3 +89,5 @@ Hausec pentesting cheat sheet
 - nmap cheat sheet:
   - https://www.comparitech.com/net-admin/nmap-nessus-cheat-sheet/
   - https://www.stationx.net/nmap-cheat-sheet/
+- hashcat:
+  - https://terokarvinen.com/2022/cracking-passwords-with-hashcat/
