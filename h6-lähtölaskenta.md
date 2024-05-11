@@ -83,7 +83,7 @@ Hausec pentesting cheat sheet
 ___
 ## b) Review
 ___
-
+Privacy threats in intimate relationships [Journal of Cybersecurity, Volume 6, Issue 1, 2020, tyaa006](https://academic.oup.com/cybersecurity/article/6/1/tyaa006/5849222)
 
 
 
