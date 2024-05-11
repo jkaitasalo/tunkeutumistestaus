@@ -65,6 +65,8 @@ ___
 | -o | output |
 | -m | mode |
 
+___
+
 ![image](https://github.com/jkaitasalo/tunkeutumistestaus/assets/117358885/89ddc2d4-e0ca-4f3d-ab45-1cf0a033542f)
 ###### https://www.comparitech.com/net-admin/nmap-nessus-cheat-sheet/
 ___
@@ -83,6 +85,13 @@ ___
 ___
 
 
+
+
+
+
+
+
+___
 ## Lähteet:
 - Metasploit Cheat Sheet:
   - https://www.comparitech.com/net-admin/metasploit-cheat-sheet/
