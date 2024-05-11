@@ -83,9 +83,19 @@ Hausec pentesting cheat sheet
 ___
 ## b) Review
 ___
-Privacy threats in intimate relationships [Journal of Cybersecurity, Volume 6, Issue 1, 2020, tyaa006](https://academic.oup.com/cybersecurity/article/6/1/tyaa006/5849222)
 
+### [Privacy threats in intimate relationships Journal of Cybersecurity, Volume 6, Issue 1, 2020, tyaa006](https://academic.oup.com/cybersecurity/article/6/1/tyaa006/5849222)
 
+- *Intimate threats*, kun intiimin suhteen jäsen rikkoo toisen yksityisyyttä. Esim. puoliso, vanhempi, lapsi tai ystävä.
+- (vuonna 2020) hiljattain tehdyn älykotien ja niiden turvalaitteiden laajemman akateemisen analyysin pohjalta tehty uhkamalli listasi 29 erilaista uhkatekijää ja 100 erilaista uhkaa, joista yksikään ei ollut kotiväkivaltainen, jonka luulisi olevan korkea prioriteetti
+- Tutkimuksen mukaan 48% vanhemmista tutki teini-ikäisten lastensa selaushistoriaa ja sosiaalisen median profiileja, 16% seurasi teinien sijaintia puhelimen datan avulla ja n. puolet vanhemmista paljastivat tietävänsä lastensa salasanoja.
+- Lapset voivat olla *itse* vaara, sillä lapset omaavat usein paremmat tietotekniset taidot, kuin heidän vanhempansa ja toimivat usein perheen "sysadmin" roolissa.
+- Älykoti ja IoT laitteet kasvavin määrin mahdollistavat intiimin suhteen yksityisyyden rikkomista.
+- Vanhempien on helppo ottaa askel yli sen havaitun rajan, joka rikkoo lapsen yksityisyyttä.
+- Jatkuvasti vanheneva väestö ja uudempi teknologia asettaa aikuiset lapset ja heidän eläkeikäiset vanhempansa erikoiseen valta-asemaan, jossa lapsella saattaa olla pääsy vanhempien nettipankkeihin yms. palveluihin.
+  - Tämä dynamiikka on läsnä myös edunhoitaja/hoidettava hoitaja/potilas tms. vast. suhteissa.
+- Kaverisuhteissa ilmenee esim. arkaluontoisen kuva- ja videomateriaalin lataamisesta nettiin.
+- Yhteisläsnäolo lisää yksityisyyden rikkoutumista. Suurin osa käyttöjärjestelmistä ja sovelluksista mm. näyttävät viestin saapuessa lähettäjän nimen, viestin otsikon tms tietoa jopa puhelimen tai laitteen lukitusnäytölle oletusarvoisesti.
 
 
 
