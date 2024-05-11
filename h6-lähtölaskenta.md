@@ -98,6 +98,12 @@ ___
 - Yhteisläsnäolo lisää yksityisyyden rikkoutumista. Suurin osa käyttöjärjestelmistä ja sovelluksista mm. näyttävät viestin saapuessa lähettäjän nimen, viestin otsikon tms tietoa jopa puhelimen tai laitteen lukitusnäytölle oletusarvoisesti.
 
 
+___
+## c) Valmiina lipunryöstöön
+
+Siivosin kurssilla käyttämää Kalin virtuaalikonetta ja käytän sitä lipunryöstössä.
+
+
 
 
 
