@@ -53,6 +53,8 @@ ___
 | -iR | nmap -iR 100 | Scan 100 random hosts |
 | -exclude | nmap -exclude 192.168.1.1 | Exclude listed hosts |
 
+___
+
 #### hashcat
 
 | **Syntax** | **Description** |
@@ -76,9 +78,9 @@ Hausec pentesting cheat sheet
 - https://hausec.com/pentesting-cheatsheet/
 
 
-
-
+___
 ## b) Review
+___
 
 
 ## Lähteet:
